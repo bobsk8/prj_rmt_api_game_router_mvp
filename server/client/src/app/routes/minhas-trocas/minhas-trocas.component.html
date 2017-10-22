@@ -1,0 +1,22 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>id Dono</th>
+          <th>Id Solicitante</th>
+          <th>Id jogo</th>
+          <th>Trocado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitacao of solicitacoes">
+          <td>{{solicitacao.id_dono}}</td>
+          <td>{{solicitacao.id_solicitante}}</td>
+          <td>{{solicitacao.id_jogo}}</td>
+          <td>{{solicitacao.trocado}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

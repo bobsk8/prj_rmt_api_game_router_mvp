@@ -1,0 +1,42 @@
+<app-menu></app-menu>
+
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Foto</th>
+          <th>Id</th>
+          <th>Titulo</th>
+          <th>Descrição</th>
+          <th>Console</th>
+          <th>Genero</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let jogo of jogos" (click)="solicitar(jogo,modal)">
+          <td><img src="http://localhost/uploads/{{jogo.foto}}" height="80" width="120"></td>
+          <td>{{jogo.nome}}</td>
+          <td>{{jogo.titulo}}</td>
+          <td>{{jogo.desc}}</td>
+          <td>{{jogo.id_console}}</td>
+          <td>{{jogo.id_genero}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <ng-template #modal let-close="close">
+      
+        <div class="modal-dialog">
+          <h4 class="modal-title">
+            {{modalContent.title}}
+          </h4>
+          <div class="modal-body">
+            <p>
+              {{modalContent.body}}
+            </p>
+          </div>
+          <button type="button" data-dismiss="modal" (click)="close()" class="btn btn-default">Continuar</button>
+        </div>
+      
+      </ng-template>

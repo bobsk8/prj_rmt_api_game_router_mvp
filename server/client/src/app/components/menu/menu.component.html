@@ -1,0 +1,7 @@
+<a routerLink="/home">Home</a> | <a routerLink="/jogos-disponiveis">Jogos Disponiveis</a> | <a routerLink="/meus-jogos">Meus Jogos</a> | <a routerLink="/minhas-trocas">Minhas trocas</a> | <a routerLink="/dados-cadastrais/edit">Dados cadastrais</a> | <button (click)="logout()">Sair</button>
+<br>
+<h5>{{user.nome}}</h5>
+<div class="form-group" *ngIf="user.foto">
+    <img src="http://localhost/uploads/{{user.foto}}" height="80" width="120">
+</div>
+<br><br><br><br>

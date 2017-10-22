@@ -1,0 +1,80 @@
+<app-menu></app-menu>
+
+
+
+<div class="container">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Foto</th>
+        <th>Id</th>
+        <th>Titulo</th>
+        <th>Descrição</th>
+        <th>Console</th>
+        <th>Genero</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let jogo of jogos">
+        <td><img src="http://localhost/uploads/{{jogo.foto}}" height="80" width="120"></td>
+        <td>{{jogo.nome}}</td>
+        <td>{{jogo.titulo}}</td>
+        <td>{{jogo.desc}}</td>
+        <td>{{jogo.id_console}}</td>
+        <td>{{jogo.id_genero}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<button class="btn btn-default" (click)="addNew()">Novo Jogo</button>
+<div *ngIf="createUpdate">
+  <div class="form-group">
+    <label for="nome">titulo:</label>
+    <input type="text" class="form-control" name="nome" [(ngModel)]="jogo.titulo">
+  </div>
+  <div class="form-group">
+    <label for="descricao">Descrição do jogo:</label>
+    <textarea class="form-control" rows="5" id="descricao" name="descricao" [(ngModel)]="jogo.desc"></textarea>
+  </div>
+  <div class="form-group">
+    <label for="console">Console</label>
+    <select class="form-control" name="console" [(ngModel)]="jogo.id_console" id="console">
+    <option value="1">X-box</option>
+    <option value="2">PS 4</option>
+  </select>
+  </div>
+  <div class="form-group">
+    <label for="genero">Genero</label>
+    <select class="form-control" name="genero" [(ngModel)]="jogo.id_genero" id="genero">
+    <option value="1">Ação</option>
+    <option value="2">Aventura</option>
+  </select>
+  </div>
+  <div class="checkbox">
+    <label><input type="checkbox" [(ngModel)]="jogo.disponivel"> Disponível para troca</label>
+  </div>
+  <div class="form-group">
+    <label for="nome">Foto:</label>
+    <input id="photo" type="file" />
+  </div>
+  <button class="btn btn-primary" (click)="save(modal)">Salvar</button>
+</div>
+
+<ng-template #modal let-close="close">
+    
+        <div class="modal-dialog">
+            <h4 class="modal-title">
+                {{modalContent.title}}
+            </h4>
+            <div class="modal-body">
+                <p>
+                    {{modalContent.body}}
+                </p>
+            </div>
+            <button type="button" data-dismiss="modal" (click)="close()" class="btn btn-default">Continuar</button>
+        </div>
+        
+    </ng-template>
