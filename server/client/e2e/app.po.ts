@@ -1,6 +1,6 @@
 import { browser, by, element } from 'protractor';
 
-export class ReformaPage {
+export class GamePage {
   navigateTo() {
     return browser.get('/');
   }

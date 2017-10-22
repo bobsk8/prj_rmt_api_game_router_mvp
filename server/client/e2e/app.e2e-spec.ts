@@ -1,10 +1,10 @@
-import { ReformaPage } from './app.po';
+import { GamePage } from './app.po';
 
-describe('reforma App', () => {
-  let page: ReformaPage;
+describe('Game App', () => {
+  let page: GamePage;
 
   beforeEach(() => {
-    page = new ReformaPage();
+    page = new GamePage();
   });
 
   it('should display welcome message', () => {
