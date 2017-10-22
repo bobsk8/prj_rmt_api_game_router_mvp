@@ -2,7 +2,6 @@
 /db
 /ssl_certs
 .idea
-/server/public
 .env
 /server/access.log
 
