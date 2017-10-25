@@ -9,15 +9,15 @@ const solicitarTrocaModel = {
         autoIncrement: true,
         primaryKey: true
     },
-    id_dono: {
-        type: DataTypes.INTEGER
-    },
-    id_solicitante: {
-        type: DataTypes.INTEGER
-    },
-    id_jogo: {
-        type: DataTypes.INTEGER
-    },
+    // id_dono: {
+    //     type: DataTypes.INTEGER
+    // },
+    // id_solicitante: {
+    //     type: DataTypes.INTEGER
+    // },
+    // id_jogo: {
+    //     type: DataTypes.INTEGER
+    // },
     trocado: {
         type: DataTypes.BOOLEAN,
         defaultValue: false

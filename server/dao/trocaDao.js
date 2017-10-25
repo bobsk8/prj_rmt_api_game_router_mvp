@@ -9,9 +9,9 @@ const trocaModel = {
         autoIncrement: true,
         primaryKey: true
     },
-    id_solicitacao: {
-        type: DataTypes.INTEGER
-    },
+    // id_solicitacao: {
+    //     type: DataTypes.INTEGER
+    // },
     chave_dono: {
         type: DataTypes.INTEGER
     },

@@ -9,15 +9,50 @@ function server(config) {
             config.dbAccess.PASSWORD,
             config.dbHost
         ),
-        consoleDao          = sequelize.import('./consoleDao'),
-        dadoCadastralDao    = sequelize.import('./dadoCadastralDao'),
-        generoDao           = sequelize.import('./generoDao'),
-        jogoDao             = sequelize.import('./jogoDao'),
-        interesseDao        = sequelize.import('./interesseDao'),
-        solicitarTrocaDao   = sequelize.import('./solicitarTrocaDao'),
-        trocaDao            = sequelize.import('./trocaDao');
+        consoleDao = sequelize.import('./consoleDao'),
+        dadoCadastralDao = sequelize.import('./dadoCadastralDao'),
+        generoDao = sequelize.import('./generoDao'),
+        jogoDao = sequelize.import('./jogoDao'),
+        interesseDao = sequelize.import('./interesseDao'),
+        solicitarTrocaDao = sequelize.import('./solicitarTrocaDao'),
+        trocaDao = sequelize.import('./trocaDao');
 
     //Relations   
+
+    dadoCadastralDao.hasMany(jogoDao, {
+        as: 'jogos',
+        foreignKey: 'id_dono'
+    });
+    generoDao.hasMany(jogoDao, {
+        as: 'jogos',
+        foreignKey: 'id_genero'
+    });
+    consoleDao.hasMany(jogoDao, {
+        as: 'jogos',
+        foreignKey: 'id_console'
+    });
+    dadoCadastralDao.hasMany(solicitarTrocaDao, {
+        as: 'solicitacoes',
+        foreignKey: 'id_dono'
+    });
+    dadoCadastralDao.hasMany(solicitarTrocaDao, {
+        as: 'solicitacoes',
+        foreignKey: 'id_solicitante'
+    });
+    jogoDao.hasMany(interesseDao, {
+        as: 'interesses',
+        foreignKey: 'id_jogo'
+    });
+
+    solicitarTrocaDao.belongsTo(jogoDao, {
+        as: 'jogo',
+        foreignKey: 'id_jogo'
+    });
+
+    trocaDao.belongsTo(solicitarTrocaDao, {
+        as: 'solicitacao',
+        foreignKey: 'id_solicitacao'
+    });    
 
     sequelize
         .authenticate()
