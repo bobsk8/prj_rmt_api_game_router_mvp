@@ -9,21 +9,15 @@ const generoModel = {
         autoIncrement: true,
         primaryKey: true
     },
-    titulo: {
+    nome: {
         type: DataTypes.STRING
     },
-    desc: {
+    descricao: {
         type: DataTypes.STRING
     },
     habilitar: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
-    },
-    dt_inc: {
-        type: DataTypes.DATE
-    },
-    dt_exc: {
-        type: DataTypes.DATE
     }
 };
 

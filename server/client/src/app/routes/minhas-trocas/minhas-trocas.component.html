@@ -4,17 +4,17 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>id Dono</th>
-          <th>Id Solicitante</th>
-          <th>Id jogo</th>
+          <th>Dono</th>
+          <th>Solicitante</th>
+          <th>jogo</th>
           <th>Trocado</th>
         </tr>
       </thead>
       <tbody>
         <tr *ngFor="let solicitacao of solicitacoes">
-          <td>{{solicitacao.id_dono}}</td>
-          <td>{{solicitacao.id_solicitante}}</td>
-          <td>{{solicitacao.id_jogo}}</td>
+          <td>{{solicitacao.dono.nome}}</td>
+          <td>{{solicitacao.solicitante.nome}}</td>
+          <td>{{solicitacao.jogo.nome}}</td>
           <td>{{solicitacao.trocado}}</td>
         </tr>
       </tbody>

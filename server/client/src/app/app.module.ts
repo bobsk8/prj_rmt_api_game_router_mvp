@@ -22,6 +22,8 @@ import { UserCreateComponent } from './routes/dados-cadastrais/create/user-creat
 import { DadosCadastraisComponent } from './routes/dados-cadastrais/edit/dados-cadastrais.component';
 import { JogoService } from './service/jogo.service';
 import { SolicitarTrocaService } from './service/solicitar-troca.service';
+import { ConsoleService } from './service/console.service';
+import { GeneroService } from './service/genero.service';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,7 @@ import { SolicitarTrocaService } from './service/solicitar-troca.service';
     NgbModule.forRoot(),
     FacebookModule.forRoot()
   ],
-  providers: [ AppService, UploadService, DadosCadastraisService, JogoService, SolicitarTrocaService],
+  providers: [ AppService, UploadService, DadosCadastraisService, JogoService, SolicitarTrocaService, ConsoleService,GeneroService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

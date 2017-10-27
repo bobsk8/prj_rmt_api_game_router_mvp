@@ -7,6 +7,10 @@ import { JogoService } from '../../service/jogo.service';
 import { DadosCadastraisService } from '../../service/dados-cadastrais.service';
 import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Modal } from '../../model/modal';
+import { ConsoleService } from '../../service/console.service';
+import { GeneroService } from '../../service/genero.service';
+import { Genero } from '../../model/genero';
+import { Console } from '../../model/console';
 
 @Component({
   selector: 'app-meus-jogos',
@@ -15,6 +19,8 @@ import { Modal } from '../../model/modal';
 })
 export class MeusJogosComponent implements OnInit {
   
+  consoles: Console[] = [];
+  generos: Genero[] = [];
   createUpdate: boolean = false;
   user: DadoCadastral = new DadoCadastral();
   modalContent = new Modal();
@@ -26,7 +32,9 @@ export class MeusJogosComponent implements OnInit {
     private dadosCadastraisService: DadosCadastraisService,
     private el: ElementRef,    
     private jogoService: JogoService,
-    private activeModal: NgbModal
+    private activeModal: NgbModal,
+    private consoleService: ConsoleService,
+    private generoService: GeneroService
   ) { }
 
   ngOnInit() {
@@ -37,7 +45,19 @@ export class MeusJogosComponent implements OnInit {
       this.user = data;
       this.jogo.id_dono = data.id;
       this.getMeusJogos();
+      this.getConsoles();
+      this.getGeneros();
     });    
+  }
+
+  getConsoles(){
+    this.consoleService.getAll()
+    .subscribe(c => this.consoles = c);
+  }
+
+  getGeneros(){
+    this.generoService.getAll()
+    .subscribe(g => this.generos = g);
   }
 
   upload(jogo_id: number,modal: any) {

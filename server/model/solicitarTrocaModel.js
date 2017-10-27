@@ -15,7 +15,7 @@ solicitarTrocaModel.create = _create;
 module.exports.solicitarTrocaModel = solicitarTrocaModel;
 
 function _findByUserId(id_solicitante) {
-  return this.DAO.findAll({where:{id_solicitante}});
+  return this.DAO.findAll({where:{id_solicitante},include: [{  all: true}]});
 }
 
 function _create(data) {

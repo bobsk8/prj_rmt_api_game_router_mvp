@@ -48,12 +48,6 @@ const dadoCadastralModel = {
     },
     pass: {
         type: DataTypes.STRING
-    },
-    dt_inc: {
-        type: DataTypes.DATE
-    },
-    dt_exc: {
-        type: DataTypes.DATE
     }
 };
 

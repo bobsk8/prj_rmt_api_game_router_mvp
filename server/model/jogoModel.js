@@ -3,6 +3,7 @@
 const
   dao = require('../dao/index').jogoDao,
   dataModel = require('./dataModel'),
+  models = require('../dao/index'),
   igdb = require('igdb-api-node').default,
   client = igdb('857a221299b32535202902ecc0386656');
 
@@ -59,7 +60,10 @@ function _updateFoto(id,ext) {
 }
 
 function _findByUserId(id_dono) {
-  return this.DAO.findAll({where:{id_dono}});
+  return this.DAO.findAll({where:{id_dono},
+    include: [
+      {  all: true}
+    ]});
 }
 
 function _findDisponiveis(id_dono) {

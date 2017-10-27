@@ -9,10 +9,10 @@ const jogoModel = {
         autoIncrement: true,
         primaryKey: true
     },
-    titulo: {
+    nome: {
         type: DataTypes.STRING
     },
-    desc: {
+    descricao: {
         type: DataTypes.STRING
     },
     foto: {
@@ -23,21 +23,6 @@ const jogoModel = {
     },
     disponivel: {
         type: DataTypes.BOOLEAN
-    },
-    // id_dono: {
-    //     type: DataTypes.INTEGER
-    // },
-    // id_console: {
-    //     type: DataTypes.INTEGER
-    // },
-    // id_genero: {
-    //     type: DataTypes.INTEGER
-    // },
-    dt_inc: {
-        type: DataTypes.DATE
-    },
-    dt_exc: {
-        type: DataTypes.DATE
     }
 };
 

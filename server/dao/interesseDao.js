@@ -9,9 +9,6 @@ const interesseModel = {
     autoIncrement: true,
     primaryKey: true
   },
-  // id_jogo: {
-  //     type: DataTypes.INTEGER
-  // },
   dt_interesse: {
       type: DataTypes.DATE
   }

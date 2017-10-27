@@ -6,8 +6,7 @@
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Foto</th>
-        <th>Id</th>
+        <th>Foto</th>        
         <th>Titulo</th>
         <th>Descrição</th>
         <th>Console</th>
@@ -18,39 +17,35 @@
       <tr *ngFor="let jogo of jogos">
         <td><img src="http://146.148.98.198/uploads/{{jogo.foto}}" height="80" width="120"></td>
         <td>{{jogo.nome}}</td>
-        <td>{{jogo.titulo}}</td>
-        <td>{{jogo.desc}}</td>
-        <td>{{jogo.id_console}}</td>
-        <td>{{jogo.id_genero}}</td>
+        <td>{{jogo.descricao}}</td>        
+        <td>{{jogo.console.nome}}</td>
+        <td>{{jogo.genero.nome}}</td>
       </tr>
     </tbody>
   </table>
 </div>
 
 
-
 <button class="btn btn-default" (click)="addNew()">Novo Jogo</button>
 <div *ngIf="createUpdate">
   <div class="form-group">
     <label for="nome">titulo:</label>
-    <input type="text" class="form-control" name="nome" [(ngModel)]="jogo.titulo">
+    <input type="text" class="form-control" name="nome" [(ngModel)]="jogo.nome">
   </div>
   <div class="form-group">
     <label for="descricao">Descrição do jogo:</label>
-    <textarea class="form-control" rows="5" id="descricao" name="descricao" [(ngModel)]="jogo.desc"></textarea>
+    <textarea class="form-control" rows="5" id="descricao" name="descricao" [(ngModel)]="jogo.descricao"></textarea>
   </div>
   <div class="form-group">
     <label for="console">Console</label>
     <select class="form-control" name="console" [(ngModel)]="jogo.id_console" id="console">
-    <option value="1">X-box</option>
-    <option value="2">PS 4</option>
+    <option *ngFor="let console of consoles" [ngValue]="console.id">{{console.nome}}</option>    
   </select>
   </div>
   <div class="form-group">
     <label for="genero">Genero</label>
     <select class="form-control" name="genero" [(ngModel)]="jogo.id_genero" id="genero">
-    <option value="1">Ação</option>
-    <option value="2">Aventura</option>
+    <option *ngFor="let genero of generos" [ngValue]="genero.id">{{genero.nome}}</option>    
   </select>
   </div>
   <div class="checkbox">

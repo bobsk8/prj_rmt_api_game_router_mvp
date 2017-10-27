@@ -1,8 +1,10 @@
+import { Console } from './console';
+
 export class Jogo {
 
     constructor(
         public id?:number,
-        public name?:number,
+        public nome?:number,
         public descricao?: string,
         public slug?:string,
         public url?:string,
@@ -16,7 +18,8 @@ export class Jogo {
         public id_genero?: number,
         public id_console?: number,
         public id_dono?: number,
-        public disponivel?:boolean
+        public disponivel?:boolean,
+        public console?: Console
     ){ }
 
 }
