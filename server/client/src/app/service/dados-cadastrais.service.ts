@@ -51,6 +51,12 @@ export class DadosCadastraisService extends ServiceModel<DadoCadastral> {
       .catch(err => Observable.throw(err));
   }
 
+  getSolicitacoesAprovadas(user_id: number): Observable<SolicitarTroca[]> {
+    return this.http.get(this.apiEndpoint + '/' + user_id +  '/solicitacoes-aprovadas', this.options)
+      .map(res => res.json())
+      .catch(err => Observable.throw(err));
+  }
+
   upload(formdata: FormData, user_id: number): Observable<any> {
     return this.http.post(this.apiEndpoint + '/' + user_id + '/upload', formdata)
       .catch(err => Observable.throw(err));

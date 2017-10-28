@@ -1,7 +1,7 @@
-<a routerLink="/home">Home</a> | <a routerLink="/jogos-disponiveis">Jogos Disponiveis</a> | <a routerLink="/meus-jogos">Meus Jogos</a> | <a routerLink="/minhas-trocas">Minhas trocas</a> | <a routerLink="/dados-cadastrais/edit">Dados cadastrais</a> | <button (click)="logout()">Sair</button>
+<a routerLink="/home">Home</a> | <a routerLink="/jogos-disponiveis">Jogos Disponiveis</a> | <a routerLink="/meus-jogos">Meus Jogos</a> | <a routerLink="/solicitacoes">Solicitacoes</a> | <a routerLink="/minhas-trocas">Minhas trocas</a> | <a routerLink="/dados-cadastrais/edit">Dados cadastrais</a> | <button (click)="logout()">Sair</button>
 <br>
 <h5>{{user.nome}}</h5>
 <div class="form-group" *ngIf="user.foto">
-    <img src="http://146.148.98.198/uploads/{{user.foto}}" height="80" width="120">
+    <img src="{{apiImage}}{{user.foto}}" height="80" width="120">
 </div>
 <br><br><br><br>

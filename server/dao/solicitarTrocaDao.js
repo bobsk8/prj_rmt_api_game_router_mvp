@@ -9,7 +9,7 @@ const solicitarTrocaModel = {
         autoIncrement: true,
         primaryKey: true
     },
-    trocado: {
+    aceite: {
         type: DataTypes.BOOLEAN,
         defaultValue: false
     },

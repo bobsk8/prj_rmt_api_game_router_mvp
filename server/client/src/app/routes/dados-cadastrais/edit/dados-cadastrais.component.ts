@@ -4,6 +4,7 @@ import { DadosCadastraisService } from '../../../service/dados-cadastrais.servic
 import { AppService } from '../../../service/app.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Modal } from '../../../model/modal';
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-dados-cadastrais',
@@ -14,6 +15,7 @@ export class DadosCadastraisComponent implements OnInit {
 
   user: DadoCadastral = new DadoCadastral();
   modalContent = new Modal();
+  apiImage = environment.uploadImage;
   
   constructor(
     private appService: AppService,

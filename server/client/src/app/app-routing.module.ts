@@ -7,12 +7,14 @@ import { MeusJogosComponent } from './routes/meus-jogos/meus-jogos.component';
 import { MinhasTrocasComponent } from './routes/minhas-trocas/minhas-trocas.component';
 import { DadosCadastraisComponent } from './routes/dados-cadastrais/edit/dados-cadastrais.component';
 import { UserCreateComponent } from './routes/dados-cadastrais/create/user-create.component';
+import { SolicitacoesComponent } from './routes/solicitacoes/solicitacoes.component';
 
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'jogos-disponiveis', component: JogosDisponiveisComponent },
   { path: 'meus-jogos', component: MeusJogosComponent },
+  { path: 'solicitacoes', component: SolicitacoesComponent },
   { path: 'minhas-trocas', component: MinhasTrocasComponent },
   {
     path: 'dados-cadastrais',

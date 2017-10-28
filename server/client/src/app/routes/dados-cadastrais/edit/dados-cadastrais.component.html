@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 
 <div class="form-group" *ngIf="user.foto">
-  <img src="http://146.148.98.198/uploads/{{user.foto}}" height="80" width="120">
+  <img src="{{apiImage}}{{user.foto}}" height="80" width="120">
 </div>
 <div class="form-group">
   <label for="nome">Foto:</label>

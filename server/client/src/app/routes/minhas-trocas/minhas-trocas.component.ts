@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { SolicitarTrocaService } from '../../service/solicitar-troca.service';
-import { AppService } from '../../service/app.service';
+import { Troca } from '../../model/troca';
 import { DadoCadastral } from '../../model/dado-cadastral';
 import { DadosCadastraisService } from '../../service/dados-cadastrais.service';
-import { SolicitarTroca } from '../../model/solicitar-troca';
+import { AppService } from '../../service/app.service';
 
 @Component({
   selector: 'app-minhas-trocas',
@@ -12,11 +11,10 @@ import { SolicitarTroca } from '../../model/solicitar-troca';
 })
 export class MinhasTrocasComponent implements OnInit {
 
-  solicitacoes: SolicitarTroca[] = [];
+  trocas: Troca[] = [];
   user: DadoCadastral = new DadoCadastral();
   
-  constructor(
-    private solicitarTrocaService: SolicitarTrocaService,
+  constructor(    
     private dadosCadastraisService: DadosCadastraisService,
     private appService: AppService
   ) { }
@@ -26,14 +24,8 @@ export class MinhasTrocasComponent implements OnInit {
       if (!data.login) {
         this.appService.redirect('');
       }
-      this.user = data;
-      this.getSolicitacoes();      
+      this.user = data;       
     }); 
-  }
-
-  getSolicitacoes(){
-    this.dadosCadastraisService.getSolicitacoes(this.user.id)
-    .subscribe(solicitacoes => this.solicitacoes = solicitacoes);
   }
 
 }

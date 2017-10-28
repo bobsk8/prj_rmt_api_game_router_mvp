@@ -25,6 +25,9 @@ function dadoCadastralRouter(app) {
     app.route(path + '/:id/solicitacoes')
         .get(require('./user-solicitacao'));
 
+    app.route(path + '/:id/solicitacoes-aprovadas')
+        .get(require('./user-solicitacao-aprovadas'));
+
     app.route(path + '/:id')
         .get(require('./get-dado-cadastral-by-id'))
         .put(require('./update-dado-cadastral-by-id'))

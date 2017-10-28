@@ -7,6 +7,7 @@ import { AppService } from '../../service/app.service';
 import { DadoCadastral } from '../../model/dado-cadastral';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { Modal } from '../../model/modal';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-jogos-disponiveis',
@@ -19,6 +20,7 @@ export class JogosDisponiveisComponent implements OnInit {
   user: DadoCadastral = new DadoCadastral();
   solicitarTroca: SolicitarTroca = new SolicitarTroca();
   modalContent = new Modal();
+  apiImage = environment.uploadImage;
 
   constructor(
     private activeModal: NgbModal,

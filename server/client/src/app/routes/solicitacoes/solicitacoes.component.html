@@ -1,0 +1,62 @@
+<app-menu></app-menu>
+
+<h3 style="text-align: center;">Minhas Solicitações</h3>
+<div class="container">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Dono</th>
+          <th>Solicitante</th>
+          <th>jogo</th>
+          <th>Aceitou</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let solicitacao of solicitacoes" (click)="solicitacao.solicitante.id !== user.id ? aprovar(solicitacao, modal): ''">
+          <td>{{solicitacao.dono.id === user.id && 'Eu' || solicitacao.dono.nome}}</td>
+          <td>{{solicitacao.solicitante.id === user.id && 'Eu' || solicitacao.solicitante.nome}}</td>
+          <td>{{solicitacao.jogo.nome}}</td>
+          <td>{{solicitacao.aceite && 'Sim' || 'Não'}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 style="text-align: center;">Aprovadas</h3>
+  <div class="container">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Dono</th>
+            <th>Solicitante</th>
+            <th>jogo</th>
+            <th>Aceitou</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let solicitacao of solicitacoesAprovadas">
+            <td>{{solicitacao.dono.nome}}</td>
+            <td>{{solicitacao.solicitante.id === user.id && 'Eu' || solicitacao.solicitante.nome}}</td>
+            <td>{{solicitacao.jogo.nome}}</td>
+            <td>{{solicitacao.aceite && 'Sim' || 'Não'}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  <ng-template #modal let-close="close">
+    
+      <div class="modal-dialog">
+        <h4 class="modal-title">
+          {{modalContent.title}}
+        </h4>
+        <div class="modal-body">
+          <p>
+            {{modalContent.body}}
+          </p>
+        </div>
+        <button type="button" data-dismiss="modal" (click)="salvar(true);close()" class="btn btn-default">Sim</button>
+        <button type="button" data-dismiss="modal" (click)="salvar(false);close()" class="btn btn-default">Não</button>
+      </div>
+    
+    </ng-template>

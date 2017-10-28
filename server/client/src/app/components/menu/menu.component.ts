@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from "../../service/app.service";
 import { DadosCadastraisService } from '../../service/dados-cadastrais.service';
 import { DadoCadastral } from '../../model/dado-cadastral';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-menu',
@@ -11,6 +12,7 @@ import { DadoCadastral } from '../../model/dado-cadastral';
 export class MenuComponent implements OnInit {
 
   user: DadoCadastral = new DadoCadastral();
+  apiImage = environment.uploadImage;
 
   constructor(
     private dadosCadastraisService: DadosCadastraisService,

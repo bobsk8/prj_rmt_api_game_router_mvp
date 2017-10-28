@@ -15,7 +15,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let jogo of jogos">
-        <td><img src="http://146.148.98.198/uploads/{{jogo.foto}}" height="80" width="120"></td>
+        <td><img src="{{apiImage}}{{jogo.foto}}" height="80" width="120"></td>
         <td>{{jogo.nome}}</td>
         <td>{{jogo.descricao}}</td>        
         <td>{{jogo.console.nome}}</td>

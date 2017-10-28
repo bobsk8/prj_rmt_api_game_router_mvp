@@ -19,4 +19,10 @@ export class SolicitarTrocaService extends ServiceModel<any> {
       .catch(err => Observable.throw(err));
   }
 
+  aprovar(solicitarTroca: SolicitarTroca): Observable<SolicitarTroca> {
+    return this.http.patch(this.apiEndpoint + '/' + solicitarTroca.id +'/aprovar',solicitarTroca, this.options)
+      .map(res => res.json())
+      .catch(err => Observable.throw(err));
+  }
+
 }

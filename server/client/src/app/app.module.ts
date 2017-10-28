@@ -24,6 +24,7 @@ import { JogoService } from './service/jogo.service';
 import { SolicitarTrocaService } from './service/solicitar-troca.service';
 import { ConsoleService } from './service/console.service';
 import { GeneroService } from './service/genero.service';
+import { SolicitacoesComponent } from './routes/solicitacoes/solicitacoes.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { GeneroService } from './service/genero.service';
     JogosDisponiveisComponent,
     MeusJogosComponent,
     MinhasTrocasComponent,
-    DadosCadastraisComponent
+    DadosCadastraisComponent,
+    SolicitacoesComponent
   ],
   imports: [
     BrowserModule,

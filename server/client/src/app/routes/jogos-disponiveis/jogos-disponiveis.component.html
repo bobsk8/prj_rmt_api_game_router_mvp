@@ -13,7 +13,7 @@
       </thead>
       <tbody>
         <tr *ngFor="let jogo of jogos" (click)="solicitar(jogo,modal)">
-          <td><img src="http://146.148.98.198/uploads/{{jogo.foto}}" height="80" width="120"></td>          
+          <td><img src="{{apiImage}}{{jogo.foto}}" height="80" width="120"></td>          
           <td>{{jogo.nome}}</td>
           <td>{{jogo.descricao}}</td>
           <td *ngIf="jogo.id_console===1">X-box</td>

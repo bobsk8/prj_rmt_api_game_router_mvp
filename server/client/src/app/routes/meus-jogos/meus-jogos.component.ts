@@ -11,6 +11,7 @@ import { ConsoleService } from '../../service/console.service';
 import { GeneroService } from '../../service/genero.service';
 import { Genero } from '../../model/genero';
 import { Console } from '../../model/console';
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-meus-jogos',
@@ -26,6 +27,7 @@ export class MeusJogosComponent implements OnInit {
   modalContent = new Modal();
   jogo: Jogo = new Jogo();
   jogos: Jogo[] = [];
+  apiImage = environment.uploadImage;
 
   constructor(
     private appService: AppService,
