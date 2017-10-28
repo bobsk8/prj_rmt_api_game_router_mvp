@@ -4,7 +4,8 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th>Foto</th>          
+          <th>Foto</th>
+          <th>Dono</th>          
           <th>Titulo</th>
           <th>Descrição</th>
           <th>Console</th>
@@ -13,12 +14,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let jogo of jogos" (click)="solicitar(jogo,modal)">
-          <td><img src="{{apiImage}}{{jogo.foto}}" height="80" width="120"></td>          
+          <td><img src="{{apiImage}}{{jogo.foto}}" height="80" width="120"></td>
+          <td>{{jogo.dono.nome}}</td>          
           <td>{{jogo.nome}}</td>
           <td>{{jogo.descricao}}</td>
-          <td *ngIf="jogo.id_console===1">X-box</td>
-          <td *ngIf="jogo.id_console===2">PS 4</td>
-          <td>{{jogo.id_genero}}</td>
+          <td>{{jogo.console.nome}}</td>
+          <td>{{jogo.genero.nome}}</td>
         </tr>
       </tbody>
     </table>
@@ -35,7 +36,8 @@
               {{modalContent.body}}
             </p>
           </div>
-          <button type="button" data-dismiss="modal" (click)="close()" class="btn btn-default">Continuar</button>
+          <button type="button" data-dismiss="modal" (click)="salvar(true);close()" class="btn btn-default">Sim</button>
+          <button type="button" data-dismiss="modal" (click)="salvar(false);close()" class="btn btn-default">Não</button>
         </div>
       
       </ng-template>

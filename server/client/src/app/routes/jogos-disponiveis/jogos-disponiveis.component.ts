@@ -34,43 +34,35 @@ export class JogosDisponiveisComponent implements OnInit {
       if (!data.login) {
         this.appService.redirect('');
       }
+      this.solicitarTroca = new SolicitarTroca();
       this.user = data;
-      this.solicitarTroca.id_solicitante = this.user.id;
       this.getGames();
-    }); 
-  }
-
-  getGames(){
-    this.jogoService.getJogosDisponiveis()
-    .subscribe(jogos => {
-      this.jogos = jogos;        
     });
   }
 
-  solicitar(jogo: Jogo,modal: any){
+  getGames() {
+    this.jogoService.getJogosDisponiveis()
+      .subscribe(jogos => this.jogos = jogos);
+  }
+
+  solicitar(jogo: Jogo, modal: any) {
+    this.solicitarTroca.id_solicitante = this.user.id;
     this.solicitarTroca.id_jogo = jogo.id;
     this.solicitarTroca.id_dono = jogo.id_dono;
-    this.solicitarTrocaService.solicitarTroca(this.solicitarTroca)
-    .subscribe(d => {      
-      this.openSuccessModal(modal)
-    });
+    this.modalContent.title = 'Deseja Solicitar?'
+    this.modalContent.body = 'Desenja solicitar a troca desse jogo?';
+    this.activeModal.open(modal).result
+      .then(result => { });
   }
 
-  openSuccessModal(modal: any) {
-    this.modalContent.title = 'Jogo solicitado com sucesso!'
-    this.modalContent.body = 'Você agora deverá esperar o dono aceitar a troca!';
-    this.activeModal.open(modal).result
-      .then(result => {        
-        this.ngOnInit();
-      });
+  salvar(aprova: boolean, modal: any) {   
+    if (aprova) {
+      this.solicitarTrocaService.solicitarTroca(this.solicitarTroca)
+        .subscribe(d => {
+          this.getGames();
+        });
+    }
+    this.solicitarTroca = new SolicitarTroca();
   }
 
-  openFailModal(modal: any) {
-    this.modalContent.title = 'Erro!'
-    this.modalContent.body = 'ocorreu um problema ao editar seus dados. Por favor, tente novamente.';
-    this.activeModal.open(modal).result
-      .then(result => {
-        
-      });
-  }
 }

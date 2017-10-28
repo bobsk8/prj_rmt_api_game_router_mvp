@@ -32,6 +32,7 @@ export class SolicitacoesComponent implements OnInit {
       if (!data.login) {
         this.appService.redirect('');
       }
+      this.solicitacao = new SolicitarTroca()
       this.user = data;
       this.getSolicitacoes();
       this.getAprovadas();      
@@ -51,7 +52,7 @@ export class SolicitacoesComponent implements OnInit {
   aprovar(solicitacao: SolicitarTroca, modal: any){
     this.solicitacao = solicitacao;
     this.modalContent.title = 'Deseja Aprovar?'
-    this.modalContent.body = 'Caso aceite, você deverá enviar o jogo pelo correio.';
+    this.modalContent.body = 'Caso aceite, você deverá confirmar com o dono do jogo essa troca.';
     this.activeModal.open(modal).result
       .then(result => { });
   }
@@ -60,7 +61,7 @@ export class SolicitacoesComponent implements OnInit {
     if(aprova){
       this.solicitacao.aceite = true;
       this.solicitarTrocaService.aprovar(this.solicitacao)
-      .subscribe(d => this.solicitacao = new SolicitarTroca())
+      .subscribe(d => this.ngOnInit())
     }else{
       this.solicitacao = new SolicitarTroca();
       

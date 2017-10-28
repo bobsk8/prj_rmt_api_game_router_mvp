@@ -94,10 +94,18 @@ function server(config) {
         targetKey: 'id'
     });
 
+    //DadoCadastral tem muitos jogos 
     dadoCadastralDao.hasMany(jogoDao, {
         as: 'jogos',
         foreignKey: 'id_dono'
-    });       
+    });
+    
+    //Jogo tem um DadoCadastral
+    jogoDao.belongsTo(dadoCadastralDao, {
+        as: 'dono',
+        foreignKey: 'id_dono',
+        targetKey: 'id'
+    });
 
     trocaDao.belongsTo(solicitarTrocaDao, {
         as: 'solicitacao',

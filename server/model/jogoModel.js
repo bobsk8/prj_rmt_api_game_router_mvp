@@ -66,8 +66,29 @@ function _findByUserId(id_dono) {
     ]});
 }
 
-function _findDisponiveis(id_dono) {
+function _findDisponiveis(id_dono,id_solicitante) {
   return this.DAO.findAll({
-    where:{id_dono: {$ne:id_dono},disponivel:1}
+    where:{id_dono: {$ne:id_dono},disponivel:1},
+    include: [
+      { model: models.dadoCadastralDao, as: 'dono' },
+      { model: models.consoleDao, as: 'console' },
+      { model: models.generoDao, as: 'genero' },
+      { model: models.solicitarTrocaDao,as: 'solicitacoes'}
+    ]
+  })
+  .then(jogos => {
+    return new Promise((resolve,reject) => {      
+      jogos = jogos.filter(jogo => {
+        if(jogo.solicitacoes.length === 0){
+          return jogo;
+        }        
+        jogo.solicitacoes.filter(solicitacao => {
+          if(solicitacao.id_solicitante != id_solicitante){
+            return jogo;
+          }
+        })
+      });
+      resolve(jogos);
+    });
   });
 }

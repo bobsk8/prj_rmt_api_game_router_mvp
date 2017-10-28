@@ -5,7 +5,8 @@ const
 
 module.exports = (req, res) => {
     let
-        id = req.session.user.id;
+        id = req.session.user.id,
+        solicitante_id = req.session.user.id;
 
-    model.findDisponiveis(id).then(data => res.send(data));
+    model.findDisponiveis(id,solicitante_id).then(data => res.send(data));
 }
